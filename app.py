@@ -1,3 +1,4 @@
+import os
 from flask import Flask, jsonify
 from flask_cors import CORS
 from datetime import datetime
@@ -11,16 +12,10 @@ CORS(app)
 # Define the API endpoint
 @app.route('/', methods=['GET'])
 def get_info():
-    # Your registered email address
     email = "akoth0mitch@gmail.com"
-
-    # Current datetime in ISO 8601 format (UTC)
     current_datetime = datetime.utcnow().isoformat() + "Z"
-
-    # GitHub URL of the project's codebase
     github_url = "https://github.com/mumiaktech/Task0-API"
 
-    # Return the response as JSON
     return jsonify({
         "email": email,
         "current_datetime": current_datetime,
@@ -29,4 +24,5 @@ def get_info():
 
 # Run the app
 if __name__ == '__main__':
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 10000))
+    app.run(host="0.0.0.0", port=port, debug=True)
