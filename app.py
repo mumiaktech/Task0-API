@@ -18,7 +18,7 @@ def get_info():
     current_datetime = datetime.utcnow().isoformat() + "Z"
 
     # GitHub URL of the project's codebase
-    github_url = "https://github.com/yourusername/your-repo"
+    github_url = "https://github.com/mumiaktech/Task0-API"
 
     # Return the response as JSON
     return jsonify({
